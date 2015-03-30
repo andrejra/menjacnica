@@ -1,5 +1,7 @@
 package menjacnica;
 
+import java.util.GregorianCalendar;
+
 public class Valuta {
 
 	String naziv;
@@ -7,6 +9,7 @@ public class Valuta {
 	double prodajniKurs;
 	double srednjiKurs;
 	double kupovniKurs;
+	GregorianCalendar datum;
 	
 	public String getNaziv() {
 		return naziv;
@@ -43,6 +46,14 @@ public class Valuta {
 		if(kupovniKurs<0) throw new RuntimeException ("Morate uneti kupovni kurs!");
 		this.kupovniKurs = kupovniKurs;
 	}
+	
+	public GregorianCalendar getDatum() {
+		return datum;
+	}
+	public void setDatum(GregorianCalendar datum) {
+		if(datum==null) throw new RuntimeException("Morate uneti datum!");
+		this.datum = datum;
+	}
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -68,7 +79,8 @@ public class Valuta {
 	public String toString() {
 		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv
 				+ ", prodajniKurs=" + prodajniKurs + ", srednjiKurs="
-				+ srednjiKurs + ", kupovniKurs=" + kupovniKurs + "]";
+				+ srednjiKurs + ", kupovniKurs=" + kupovniKurs + ", datum="
+				+ datum.getTime() + "]";
 	}
 	
 	
