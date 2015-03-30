@@ -38,6 +38,33 @@ public class Valuta {
 	public void setKupovniKurs(double kupovniKurs) {
 		this.kupovniKurs = kupovniKurs;
 	}
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(kupovniKurs);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
+		temp = Double.doubleToLongBits(prodajniKurs);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result
+				+ ((skraceniNaziv == null) ? 0 : skraceniNaziv.hashCode());
+		temp = Double.doubleToLongBits(srednjiKurs);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	public boolean equals(Object obj) {
+		Valuta v = (Valuta) (obj);
+		if(skraceniNaziv.equals(v.getSkraceniNaziv())) return true;
+		return false;
+	}
+	public String toString() {
+		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv
+				+ ", prodajniKurs=" + prodajniKurs + ", srednjiKurs="
+				+ srednjiKurs + ", kupovniKurs=" + kupovniKurs + "]";
+	}
+	
+	
 	
 	
 }
