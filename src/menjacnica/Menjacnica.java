@@ -22,12 +22,7 @@ public class Menjacnica implements interfejsMenjacnica {
 			valute.add(v);
 		}
 		else {
-			try {
-				throw new Exception("Zadata valuta je vec u bazi!");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new RuntimeException("Zadata valuta je vec u bazi!");
 		}
 	}
 
@@ -52,7 +47,6 @@ public class Menjacnica implements interfejsMenjacnica {
 				}
 			}
 		}
-		System.out.println("Razlika u kodu koja sprecava merge");
 	return null;
 	}
 }
